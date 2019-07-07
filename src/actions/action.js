@@ -48,7 +48,7 @@ export const editLocation = (name,id)=>{
 export const deleteLocationAction = (name,id,i)=> async dispatch =>{
 
   deleteLocationAPI(id).then(res=>{
-    console.log(res);
+    
     if(res.status===200||res.status===201)
     dispatch({
       type: 'DELETE_LOCATION',
