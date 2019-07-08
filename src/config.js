@@ -6,5 +6,5 @@ export const projectConfig = {
 
 export const mapConfig = {
   mapApi: 'https://maps.google.com/maps/api/js?key=',
-  mapKey: 'AIzaSyACp_pWYQivQMWFUlPB_L6jLFScPaL67Sw'
+  mapKey: ''
 }
