@@ -11,6 +11,8 @@ import {
 class Map extends React.Component {
   constructor(props) {
     super(props);
+
+    // load googleMapAPI script
     setTimeout(()=>{
       this.onScriptLoad = this.onScriptLoad.bind(this)
     }, 1500);
@@ -25,6 +27,7 @@ class Map extends React.Component {
       this.geocodeAddress(geocoder, map)
   }
 
+  // Geocode markers for each location address
   geocodeAddress=(geocoder, resultsMap)=>{
 
     this.props.locationArray.map(location=>{
@@ -41,6 +44,7 @@ class Map extends React.Component {
             location.lat = results[0].geometry.location.lat()
             location.lng = results[0].geometry.location.lng()
 
+            // Update existing location with lat, lng
             this.props.editExistingLocationAction(location)
 
             resultsMap.setCenter(results[0].geometry.location);
@@ -49,6 +53,8 @@ class Map extends React.Component {
               position: results[0].geometry.location
             });
           } else {
+
+            // delete location if dosent exists in germany
             this.props.deleteLocationAction(location.name, location.id)
             alert('Unable to find location with in Germany. Geocode was not successful for the following reason: ' + status);
           }
@@ -56,6 +62,7 @@ class Map extends React.Component {
       })
   }
 
+  // init googleMapAPI
   componentDidMount() {
     if (!window.google) {
       var s = document.createElement('script');

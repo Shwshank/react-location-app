@@ -13,7 +13,11 @@ import {
 class ListLocation extends React.Component {
 
   componentWillMount() {
+
+    // network call to get locations
     this.props.getAllLocationAction()
+
+    // initialized location values as default eg: name, id
     this.props.editLocation("",0)
   }
 
@@ -23,6 +27,9 @@ class ListLocation extends React.Component {
 
   saveInfo=(loc)=>{
 
+    // If submited location dosent have an id, means location already
+    // present in the db. If location isn't in db, generate rendom id
+    // & save the location. Else id exists, update location name
     if(loc.id===""||loc.id===0) {
       loc.id = Math.floor(Math.random()*(893)+101)
       this.props.addNewLocationAction(loc.name, loc.id)
@@ -35,7 +42,6 @@ class ListLocation extends React.Component {
   editLocation=(location)=>{
     this.props.editLocation(location.name,location.id)
     window.location.reload()
-    // this.renderAddLocation()
   }
 
   deleteLocation=(location,i)=>{
@@ -52,6 +58,7 @@ class ListLocation extends React.Component {
     )
   }
 
+  // shortern lat, lng decimals
   trimData=(data)=>{
     data +=""
     let temp = data.substring(0, 7);
@@ -62,6 +69,7 @@ class ListLocation extends React.Component {
     )
   }
 
+  // locations are being render according to template
   renderLocation=()=>{
     let i=0;
 
@@ -69,7 +77,7 @@ class ListLocation extends React.Component {
       i++
       return(
 
-        <div className="col-6 p-2" >
+        <div className="col-6 col-sm-6 p-2 float-left" >
 
           <div key={location.id} className="card">
             <div className="card-body" >
@@ -107,7 +115,7 @@ class ListLocation extends React.Component {
           {this.renderAddLocation()}
         </div>
 
-        <div className="row overflow-auto" >
+        <div>
           {this.renderLocation()}
         </div>
 

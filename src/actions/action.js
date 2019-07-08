@@ -1,12 +1,11 @@
 import {
-
   getLocationsAPI,
   addNewLocationAPI,
   deleteLocationAPI,
   editLocationAPI
-
 } from '../services/apiServices'
 
+// Add a location action
 export const addNewLocationAction =(name,id)=>async dispatch=>{
 
   let location = {name:name, id:id}
@@ -20,9 +19,9 @@ export const addNewLocationAction =(name,id)=>async dispatch=>{
       })
     }
   })
-
 }
 
+// get all locations
 export const getAllLocationAction = () => async dispatch =>{
   let locations = []
 
@@ -38,17 +37,12 @@ export const getAllLocationAction = () => async dispatch =>{
   })
 }
 
-export const editLocation = (name,id)=>{
-  return({
-    type: 'EDIT_LOCATION',
-    payload : {name:name, id:id}
-  })
-}
 
+// delete a location
 export const deleteLocationAction = (name,id,i)=> async dispatch =>{
 
   deleteLocationAPI(id).then(res=>{
-    
+
     if(res.status===200||res.status===201)
     dispatch({
       type: 'DELETE_LOCATION',
@@ -57,6 +51,7 @@ export const deleteLocationAction = (name,id,i)=> async dispatch =>{
   })
 }
 
+// edit an existing location
 export const editExistingLocationAction = (location)=> async dispatch =>{
 
   console.log(location);
@@ -66,5 +61,13 @@ export const editExistingLocationAction = (location)=> async dispatch =>{
       type: 'EDIT_EXISTING_LOCATION',
       payload : location
     })
+  })
+}
+
+// push text into location text-feild for editing
+export const editLocation = (name,id)=>{
+  return({
+    type: 'EDIT_LOCATION',
+    payload : {name:name, id:id}
   })
 }

@@ -1,11 +1,6 @@
 import _ from 'lodash';
 import { combineReducers } from 'redux';
 
-let locationArray = [
-  {id:112, name:"location1"},
-  {id:113, name:"location2"}
-]
-
 const getLocation = (state=[], action) =>{
 
   switch(action.type) {

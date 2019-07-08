@@ -6,8 +6,11 @@ I've used [json-server](https://www.npmjs.com/package/json-server) for backend A
 
 Install and run json-server <br>
 `npm i -g json-server` <br>
-By default, json-server runs on port 3000, same as react. So, json-server needs to e run on a diffrent port eg. 5000
+
+By default, json-server runs on port 3000, same as react. So, json-server needs to e run on a diffrent port eg. 5000 <br>
+
 `cd json-server` <br>
+
 `json-server --p 5000 db.json --watch` <br>
 
 In the project directory, you can run:

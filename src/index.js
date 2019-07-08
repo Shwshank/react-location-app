@@ -27,10 +27,13 @@ const logger = createLogger({
   diff : true
 });
 
+// browser redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// prevent memory leak and maintain state during refresh
 const persistedReducer = persistReducer(persistConfig, Reducers)
 
+// store init
 const store = createStore(
   persistedReducer,
   composeEnhancers(applyMiddleware(reduxThunk, logger))
