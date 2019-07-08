@@ -9,7 +9,7 @@ Install and run json-server <br>
 
 By default, json-server runs on port 3000, same as react. So, json-server needs to e run on a diffrent port eg. 5000 <br>
 
-`cd json-server` <br>
+`cd json-server/` <br>
 
 `json-server --p 5000 db.json --watch` <br>
 
@@ -35,7 +35,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
